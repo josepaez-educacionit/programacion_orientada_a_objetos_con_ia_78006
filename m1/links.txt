@@ -1,0 +1,24 @@
+IA
+https://chatgpt.com/
+
+https://gemini.google.com/app?hl=es
+
+https://claude.ai/login?returnTo=%2F%3F
+
+https://chat.qwen.ai/auth
+
+https://chat.deepseek.com/
+
+https://chat.mistral.ai/chat
+
+https://www.meta.ai/
+
+https://grok.com/
+
+https://www.perplexity.ai/
+
+
+Extensiones de VS Code
+https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-es
+https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat
