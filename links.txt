@@ -1,0 +1,17 @@
+### **1.1 Instalación de Git**
+
+1. **Descargar Git:**
+   - Ve al sitio oficial de Git: [https://git-scm.com/](https://git-scm.com/).
+   - Descarga la versión adecuada para tu sistema operativo (Windows, macOS o Linux).
+
+2. **Instalar en Windows:**
+   - Ejecuta el instalador descargado.
+   - Acepta los términos y condiciones.
+   - Durante la instalación, selecciona Git Bash como terminal predeterminada si prefieres usarlo en lugar de la consola de Windows.
+
+3. **Verificar la instalación:**
+   - Abre la consola de Windows o Git Bash y ejecuta:
+     ```bash
+     git --version
+     ```
+     Resultado esperado: Algo como `git version 2.x.x`.
