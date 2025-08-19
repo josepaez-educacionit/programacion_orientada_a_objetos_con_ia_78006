@@ -1,0 +1,113 @@
+¡Vamos por partes! 👇
+
+# 1) Entendiendo el enunciado (qué hay que hacer)
+
+Se pide construir un **sistema para una fintech** con estas capacidades principales:
+
+* **Gestión de clientes:** crear/modificar/eliminar clientes (ID único, nombre, apellido, DNI). El **usuario inicia sesión** con email y password.
+* **Gestión de cuentas:** crear cuentas para cada cliente (código único, saldo inicial, vínculo al cliente).
+* **Movimientos:** registrar **depósitos** y **retiros** con tipo, monto y fecha.
+* **Consulta de saldo** por cuenta.
+* **POO + UML:** diseñar con orientación a objetos y documentar con UML.
+* **Web amigable:** interfaz HTML/JS generada con ayuda de IA.
+* **Buenas prácticas:** modularización, encapsulamiento, comentarios.
+* **Publicar en GitHub** y **desplegar en Internet**.
+* **Opcional:** prototipo de **blockchain** para encadenar movimientos y garantizar integridad.&#x20;
+
+# 2) ¿Qué tecnologías/conocimientos necesitas?
+
+## Mínimo viable (100% alineado al enunciado)
+
+* **HTML5 / CSS3 (básico)** para UI.
+* **JavaScript (ES6+)** con **módulos** y **POO** (clases, import/export).
+* **UML** (StarUML, draw\.io, o Mermaid) para **Casos de Uso**, **Clases** y **Diagrama de Secuencia** simple.
+* **Almacenamiento web**: `localStorage` (o **IndexedDB**) para persistencia en el cliente.
+* **Git & GitHub**: versionado, issues, README, GitHub Pages.
+* **Despliegue estático**: GitHub Pages / Netlify / Vercel.
+
+## Recomendado (buenas prácticas y crecimiento)
+
+* **TypeScript** (tipado, escalabilidad).
+* **Testing** (Jest + Testing Library).
+* **Bundler** (Vite/Parcel) para dev-server y empaquetado.
+* **Accesibilidad (a11y)** y **validación de formularios**.
+* **Cifrado/Hash** (si luego migras a backend real; p. ej., bcrypt en server).
+* **Backend opcional** (si decides ir más allá): **Node.js + Express**, **JWT**, **ORM** (Prisma/TypeORM), **SQL** (PostgreSQL/MySQL).
+
+# 3) Modelo OOP y casos de uso
+
+## Entidades
+
+* **Cliente**: `id`, `nombre`, `apellido`, `dni`, `email`.
+* **Cuenta**: `id`, `codigo`, `clienteId`, `saldo`.
+* **Movimiento**: `id`, `cuentaId`, `tipo (DEPOSITO|RETIRO)`, `monto`, `fechaISO`, `saldoPosterior`.
+
+## Servicios (capa de aplicación)
+
+* **AuthService**: `register`, `login`, `logout`, `getCurrentUser`.
+* **AccountService**: `createAccount`, `depositar`, `retirar`, `getSaldo`, `getMovimientos`, `getAccountsByCliente`.
+
+## Casos de uso clave
+
+* **Registrar cliente** → **Crear cuenta** → **Depositar/Retirar** → **Consultar saldo** → **Listar movimientos**.
+* (Opcional) **Encadenar movimientos en Blockchain** simple (génesis + bloques con hash previo y validación).
+
+# 4) Estructura propuesta del proyecto
+
+```
+fintech-starter/
+├─ index.html                  # UI mínima
+├─ README.md
+└─ src/
+   ├─ domain/                  # Entidades (POO)
+   │  ├─ Cliente.js
+   │  ├─ Cuenta.js
+   │  └─ Movimiento.js
+   ├─ app/                     # Servicios / Repos
+   │  ├─ AuthService.js
+   │  ├─ AccountService.js
+   │  └─ Storage.js            # Persistencia en localStorage
+   ├─ ui/
+   │  └─ main.js               # Enlaza UI y servicios
+   └─ optional/
+      └─ Blockchain.js         # Prototipo educativo (opcional)
+```
+
+# 5) Plantilla lista para usar (descargable)
+
+Te dejé una **plantilla completa** (HTML + JS modular, POO, almacenamiento local y UI mínima).
+Puedes descargarla, abrir `index.html` en un navegador moderno o servirla con un server local:
+
+**[Descargar la plantilla (ZIP)](sandbox:/mnt/data/fintech-starter.zip)**
+
+> Sugerencia: si el navegador no permite ES Modules desde `file://`, ejecuta:
+>
+> ```
+> python -m http.server 8080
+> ```
+>
+> y abre [http://localhost:8080](http://localhost:8080)
+
+## Qué incluye la plantilla
+
+* **Login/Registro** (demo, sin hashing; apto para práctica local).
+* **Crear cuentas** con código y saldo inicial.
+* **Depositar/Retirar** con actualización de saldo.
+* **Tabla de movimientos** por cuenta.
+* **Servicios** `AuthService` y `AccountService` con **POO** y **encapsulamiento**.
+* **Blockchain opcional** de ejemplo educativo para encadenar movimientos.
+
+# 6) Próximos pasos sugeridos (para cumplir con TODO el enunciado)
+
+1. **Dibujar UML** (Casos de Uso, Clases, Secuencias para depósito y retiro).
+2. **Mejorar validaciones** (monto > 0, DNI válido, email con formato, etc.).
+3. **Agregar tests** (Jest) a servicios de dominio.
+4. **Documentar** en README: decisiones de diseño, supuestos, cómo correr y desplegar.
+5. **Publicar en GitHub** y **Desplegar** (GitHub Pages / Netlify).
+6. (Opcional) **Blockchain**: al registrar movimiento, crear un bloque nuevo con hash del anterior y exponer `isChainValid()`.
+
+Si querés, en el próximo paso te armo:
+
+* **Diagramas UML** (Mermaid/StarUML) base,
+* un **README de proyecto** más completo con checklist,
+* y **tests Jest** para los servicios.
