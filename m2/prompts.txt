@@ -5,3 +5,13 @@
 ¿Podrías programar, en JavaScript, la clase Personaje que tiene nombre, defensa, poder y salud? Mostrar directamente el código de la clase.
 
 ¿Podrías programar, en Python, la clase Personaje que tiene nombre, defensa, poder y salud? Mostrar, directamente, el código de la clase.
+
+
+Crea un objeto JavaScript con la clase Personaje que tiene nombre, defensa, poder y salud.
+
+Que represente a Superman y otro que represente a Omni-Man.
+Quisiera que puedan batallar entre sí.  
+Me gustaría que me muestre como quedarían los objetos y un
+ejemplo de ataque de uno a otro.
+
+Crear el archivo lucha.js
